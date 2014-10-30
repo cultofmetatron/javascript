@@ -72,7 +72,7 @@ home.on.ready(function (ref) {
 
         // TODO: Make ref() work, then replace light1 references with ref below
         // Dependent on https://www.pivotaltracker.com/story/show/81638512
-        //console.log("light1 Ready. Value: " + ref.value());
+        // console.log("light1 Ready. Value: " + ref.value());
 
         setTimeout(function(){
             console.log("light1 Ready. Value: " + log(light1.value()));
@@ -89,7 +89,11 @@ home.on.ready(function (ref) {
     // This should be rendering a pretty array, but its not
 
     occupants.on.change(function(ref) {
-        console.log("Occupancy change: " + log(occupants.value()));
+        console.log("Occupancy change: " + log(ref.value()));
+    })
+
+    light1.on.change(function(ref) {
+        console.log("light1 changed to: " + log(ref.value()));
     })
 
 });
