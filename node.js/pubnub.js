@@ -635,6 +635,10 @@ function PN_API(setup) {
 
             if (typeof cloak != 'undefined') data['cloak'] = (cloak)?'true':'false';
 
+            if ('auth_key' in args) {
+                data['auth'] = args['auth_key'];
+            }
+
             CR(args, callback, url, data);
         },
 
