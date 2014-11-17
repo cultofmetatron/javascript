@@ -617,7 +617,10 @@ function PN_API(setup) {
     function CR(args, callback, url1, data) {
             var callback        = args['callback']      || callback
             ,   err             = args['error']         || error
-            ,   jsonp           = jsonp_cb();
+            ,   jsonp           = jsonp_cb()
+            ,   params          = _get_url_params(data);
+
+            params['auth'] = AUTH_KEY;
 
             var url = [
                     STD_ORIGIN, 'v1', 'channel-registration',
@@ -628,7 +631,7 @@ function PN_API(setup) {
 
             xdr({
                 callback : jsonp,
-                data     : _get_url_params(data),
+                data     : params,
                 success  : function(response) {
                     _invoke_callback(response, callback, err);
                 },
