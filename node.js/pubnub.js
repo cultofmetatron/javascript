@@ -470,7 +470,7 @@ function PN_API(setup) {
             ,   jsonp           = jsonp_cb()
             ,   params          = _get_url_params(data);
 
-            params['auth'] = AUTH_KEY;
+            params['auth'] = args['auth_key'] || AUTH_KEY;
 
             var url = [
                     STD_ORIGIN, 'v1', 'channel-registration',
